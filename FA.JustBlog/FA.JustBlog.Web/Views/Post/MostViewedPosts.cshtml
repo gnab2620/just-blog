@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model FA.JustBlog.Web.Models.PostTagMapAndPost
+    
+<div class="list-group">
+    @foreach (var item in Model.CardForPostVM)
+    {
+        <hr class="my-4" />
+        <a href="post/@item.PostOn.Year/@item.PostOn.Month/@item.UrlSlug" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+
+
+                <h1 class="mb-1">
+                    @item.Title
+                </h1>
+                @*                <small>@{DateTime.Now.Hour - item.PublishedDate.Hour < 24 ? (DateTime.Now.Hour - item.PublishedDate.Hour < 24).ToString() + "hours ago" : ((DateTime.Now.Day - item.PublishedDate.Day).ToString() + "day ago")}  </small>
+                *@
+            </div>
+            
+        </a>
+        
+        <div class="list-group-item ">
+
+            <div> Category:  <a>@item.Category.Name</a></div>
+            <div> Tag:  
+            @foreach (var i in item.ListTag)
+            {
+                <span class="border border-dark"> <a>@i.Name</a></span>
+            }
+
+            </div>
+            <p class="mb-1">@item.ShortDescription</p>
+            <small>@item.ViewCount  views</small>
+        </div>
+        
+    }
+</div>
+
+  

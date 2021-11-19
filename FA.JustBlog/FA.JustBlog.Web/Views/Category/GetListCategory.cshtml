@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<FA.JustBlog.Web.Models.ListCategory>
+
+
+<li class="nav-item menu-open">
+    <a class="nav-link active">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p>
+            List Category
+            <i class="right fas fa-angle-left"></i>
+        </p>
+    </a>
+    <ul class="nav nav-treeview">
+        @foreach (var item in Model)
+        {
+            <li class="nav-item">
+                <a href="~/cate/@item.UrlSlug" class="nav-link active">
+                    <i class="far fa-list nav-icon"></i>
+                    <p>@item.Name</p>
+                </a>
+            </li>
+        }
+    </ul>
+</li>
